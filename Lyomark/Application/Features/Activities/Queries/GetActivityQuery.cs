@@ -31,7 +31,19 @@ namespace Application.Features.Activities.Queries
 
             public async Task<List<ActivityDTO>> Handle(GetActivityQuery request, CancellationToken cancellationToken)
             {
-                var lista = (await _unitOfWork.Repository<Activity>().GetAsync(x => x.IsActive == true)).OrderByDescending(c => c.CreatedDate);
+                var lista = (await _unitOfWork.Repository<Activity>()
+                    .GetAsync(x => x.IsActive == true , includeProperties : "User"))
+                    .Select(s => new Activity
+                    {
+                        ActivityName = s.ActivityName,
+                        Id = s.Id,
+                        CreatedDate =s.CreatedDate,
+                        User = new User { LastName = s.User.LastName , UserName = s.User.UserName},
+                        UserId = s.UserId,
+                         
+                    })
+                    .OrderByDescending(c => c.CreatedDate);
+                var t = lista.ToList();
                 return _mapper.Map<List<ActivityDTO>>(lista);
             }
         }

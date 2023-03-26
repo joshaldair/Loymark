@@ -1,4 +1,6 @@
 ﻿
+using Application.Features.Users.Queries.DTO;
+
 namespace Application.Features.Activities.Queries.DTO;
 
 public class ActivityDTO
@@ -8,4 +10,5 @@ public class ActivityDTO
     public int Id { get; set; }
     public DateTime? CreatedDate { get; set; }
     public DateTime? LastModifiedDate { get; set; }
+    public UserDTO User { get; set; }
 }

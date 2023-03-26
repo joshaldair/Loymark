@@ -18,7 +18,7 @@ namespace Application.Mappings
 
             // User
             CreateMap<CreateUserCommand, User>();
-            CreateMap<DeleteUserCommand, Activity>();
+            CreateMap<DeleteUserCommand, User>();
             CreateMap<User, UserDTO>();
         }
     }

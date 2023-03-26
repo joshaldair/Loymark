@@ -43,7 +43,7 @@ namespace Application.Features.Activities.Queries
                          
                     })
                     .OrderByDescending(c => c.CreatedDate);
-                var t = lista.ToList();
+
                 return _mapper.Map<List<ActivityDTO>>(lista);
             }
         }

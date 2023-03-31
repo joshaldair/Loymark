@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mmDvlsamkpOYdza4vmY40FXVgcv7lSroSjrFlqpqkiJq+vT8PfR8clonwlpaa72ibEtSnPjGT3AbB/6F840TeQ==",
+  "dgSpecHash": "XmEygwlQY0AnQxYxkRf2H7CLsda/0d+QhWLJWKkp7XRMmM8KDdbKbA8ASAWVVPmRRxgOOz6csAAuk+JGSLgJuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sikiu\\source\\repos\\Loymark\\Lyomark\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\sikiu\\Repo\\Loymark\\Lyomark\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sikiu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\sikiu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

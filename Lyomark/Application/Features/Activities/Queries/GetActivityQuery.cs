@@ -31,7 +31,7 @@ namespace Application.Features.Activities.Queries
 
             public async Task<List<ActivityDTO>> Handle(GetActivityQuery request, CancellationToken cancellationToken)
             {
-                var lista = (await _unitOfWork.Repository<Activity>()
+                var lista = (await _unitOfWork.ActivityRepository
                     .GetAsync(x => x.IsActive == true , includeProperties : "User"))
                     .Select(s => new Activity
                     {

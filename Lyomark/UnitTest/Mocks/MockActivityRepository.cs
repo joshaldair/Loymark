@@ -2,6 +2,7 @@
 using AutoFixture;
 using Domain;
 using Infrastructure.Persistance;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,13 @@ public class MockActivityRepository
         //Creando data
         var fixture = new Fixture();
         fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-        var articulos = fixture.CreateMany<Activity>(5).ToList();
-        articulos.ForEach(a => a.UserId = 8001);
-        articulos.ForEach(d => d.User = new User { LastName ="good", UserName = "is well",Id = 8001});
+        var actividades = fixture.CreateMany<Activity>(5).ToList();
+        actividades.ForEach(a => a.UserId = 8001);
+        actividades.ForEach(d => d.User = new User { LastName ="good", UserName = "is well",Id = 8001});
+
+
         var mockRepository = new Mock<IActivityRepository>();
-        mockRepository.Setup(x => x.GetAsync(f => f.IsActive == true)).ReturnsAsync(articulos);
+        mockRepository.Setup(x => x.GetAsync(f => f.IsActive == true)).ReturnsAsync(actividades);
         return mockRepository;
     }
 

@@ -1,0 +1,27 @@
+<table class="table table-hover" >
+    <thead class="thead-light">
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Cumpleaños</th>
+      <th>Telefono</th>
+      <th>Pais </th>
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddOrEdit(null)"><i class="fa fa-plus-square"></i> Nuevo
+            Usuario</a>
+    </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listadoUsuarios">
+        <th (click)="AddOrEdit(item)">{{item.userName}}</th>
+        <td (click)="AddOrEdit(item)">{{item.lastName}}</td>
+        <td (click)="AddOrEdit(item)">{{item.email}}</td>
+        <td (click)="AddOrEdit(item)">{{item.birthDay |  date: 'dd/MM/yyyy'}}</td>
+        <td (click)="AddOrEdit(item)">{{item.cellphone}}</td>
+        <td (click)="AddOrEdit(item)">{{item.country}}</td>
+        <td>
+            <a class="btn text-danger" (click)="deleteUser(item.id)"><i class="fa fa-trash fa-lg"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

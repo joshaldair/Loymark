@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title">Actividad</h4>
+    <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')"><i class="fa fa-times"></i></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" autocomplete="off">
+        <input type="hidden" name="Id" formControlName="id">
+        <div class="form-group">
+            <label>Usuario</label>
+            <select name="userId" formControlName="userId" class="form-control"
+                [class.is-invalid]="isSubmitted && form.controls['userId'].value==null">
+                <option value="0">-Select-</option>
+                <option *ngFor="let item of listaUsuarios" value="{{item.id}}">{{item.userName | uppercase}}
+                    {{item.lastName | uppercase}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+
+            <label> Descripcion</label>
+            <div class="input-group">
+                <input name="activityName" maxlength="90" [class.is-invalid]="isSubmitted && form.controls['activityName'].value==null"
+                    formControlName="activityName" class="form-control">
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="onSubmit()"><i class="fa fa-database"></i> Crear</button>
+    <button type="button" class="btn btn-outline-dark ml-1" (click)="modal.dismiss('cancel click')"><i
+            class="fa fa-close"></i>
+        Cerrar</button>
+
+</div>
